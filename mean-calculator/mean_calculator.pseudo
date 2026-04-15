@@ -1,0 +1,51 @@
+PROGRAM CalculateMean
+
+DECLARE numbers[10] AS INTEGER ARRAY
+DECLARE sum AS INTEGER
+DECLARE mean AS REAL
+DECLARE i AS INTEGER
+DECLARE j AS INTEGER
+DECLARE temp AS INTEGER
+
+// Initialize sum to 0
+sum = 0
+
+// Request input from user
+PRINT "Enter 10 numbers to calculate their mean:"
+PRINT ""
+
+FOR i = 0 TO 9 DO
+    PRINT "Enter number " + (i + 1) + ": "
+    INPUT numbers[i]
+    sum = sum + numbers[i]
+END FOR
+
+// Calculate mean
+mean = sum / 10
+
+// Sort numbers in ascending order using Bubble Sort
+FOR i = 0 TO 9 DO
+    FOR j = 0 TO (9 - i - 1) DO
+        IF numbers[j] > numbers[j + 1] THEN
+            temp = numbers[j]
+            numbers[j] = numbers[j + 1]
+            numbers[j + 1] = temp
+        END IF
+    END FOR
+END FOR
+
+// Display results
+PRINT ""
+PRINT "=== RESULTS ==="
+PRINT ""
+
+PRINT "Numbers in order (lower to greater):"
+FOR i = 0 TO 9 DO
+    PRINT numbers[i]
+END FOR
+
+PRINT ""
+PRINT "Sum of all numbers: " + sum
+PRINT "Mean (Average): " + mean
+
+END PROGRAM
